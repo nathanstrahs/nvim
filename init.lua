@@ -945,20 +945,6 @@ require('lazy').setup({
     end,
   },
 
-  -- Feline: Custom status bar
-  --{
-  --  'famiu/feline.nvim',
-  --  opts = {},
-  --  config = function(_, opts)
-  --    local ctp_feline = require 'catppuccin.groups.integrations.feline'
-  --    ctp_feline.setup()
-
-  --    require('feline').setup {
-  --      components = ctp_feline.get(),
-  --    }
-  --  end,
-  --},
-
   -- Catpuccin Theme
   {
     'catppuccin/nvim',
@@ -975,6 +961,20 @@ require('lazy').setup({
         },
       }
     end,
+  },
+    
+  -- Feline: Custom status bar
+  {
+  "famiu/feline.nvim",
+  dependencies = { "catppuccin/nvim" }, -- make sure catppuccin loads first
+  config = function()
+    local ctp_feline = require("catppuccin.special.feline")
+    ctp_feline.setup()
+
+    require("feline").setup({
+      components = ctp_feline.get_statusline(),
+    })
+  end,
   },
 
   -- { -- You can easily change to a different colorscheme.
