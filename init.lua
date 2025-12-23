@@ -946,18 +946,18 @@ require('lazy').setup({
   },
 
   -- Feline: Custom status bar
-  {
-    'famiu/feline.nvim',
-    opts = {},
-    config = function(_, opts)
-      local ctp_feline = require 'catppuccin.groups.integrations.feline'
-      ctp_feline.setup()
+  --{
+  --  'famiu/feline.nvim',
+  --  opts = {},
+  --  config = function(_, opts)
+  --    local ctp_feline = require 'catppuccin.groups.integrations.feline'
+  --    ctp_feline.setup()
 
-      require('feline').setup {
-        components = ctp_feline.get(),
-      }
-    end,
-  },
+  --    require('feline').setup {
+  --      components = ctp_feline.get(),
+  --    }
+  --  end,
+  --},
 
   -- Catpuccin Theme
   {
@@ -1038,6 +1038,7 @@ require('lazy').setup({
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
